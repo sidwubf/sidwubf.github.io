@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux常用命令"
-date:   2016-05-19 13:49:23 +0800
+date:   2014-05-19 13:49:23 +0800
 categories: linux
 ---
 {% highlight linenos %}
