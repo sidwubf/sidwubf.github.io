@@ -67,9 +67,14 @@
     <p>Servelt容器例如Tomcat、Jetty等</p>
   </li>
   <li>
-    <p>Tomcat容器模型</p>
+    <p>Tomcat容器模型
+分为4个等级，一个Context对应一个Web
+Context配置举例:</p>
   </li>
 </ol>
+
+<figure class="highlight"><pre><code class="language-linenos" data-lang="linenos">&lt;Context path="/simple01 " docBase="/data/www/simple01"
+ reloadable="true" /&gt;</code></pre></figure>
 
 <p><img src="http://sidwubf.github.io/images/servlet001.jpg" alt="Tomcat container model" /></p>
 
