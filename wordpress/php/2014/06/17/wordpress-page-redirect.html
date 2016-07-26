@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Keep walking</title>
+  <title>WordPress页面跳转</title>
   <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://sidwubf.github.io/">
+  <link rel="canonical" href="http://sidwubf.github.io/wordpress/php/2014/06/17/wordpress-page-redirect.html">
   <link rel="alternate" type="application/rss+xml" title="Keep walking" href="http://sidwubf.github.io/feed.xml">
 </head>
 
@@ -54,45 +54,33 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Jul 25, 2016</span>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">WordPress页面跳转</h1>
+    <p class="post-meta"><time datetime="2014-06-17T14:26:00+08:00" itemprop="datePublished">Jun 17, 2014</time></p>
+  </header>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2016/07/25/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 17, 2014</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>1.在/wp-content/themes/当前主题 下创建redirect.php</p>
 
-        <h2>
-          <a class="post-link" href="/wordpress/php/2014/06/17/wordpress-page-redirect.html">WordPress页面跳转</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 1, 2014</span>
+<p>2.把下面代码拷贝进去</p>
 
-        <h2>
-          <a class="post-link" href="/linux/tcpdump/2014/06/01/tcpdump.html">tcpdump命令</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">May 19, 2014</span>
+<figure class="highlight"><pre><code class="language-linenos" data-lang="linenos">&lt;?php
+if (have_posts()) {
+the_post();
+$pattern = ‘@(https?://([-\w\.]+)+(:\d+)?(/([\w/_\.]*(\?\S+)?)?)?)@’;
+preg_match($pattern, get_the_excerpt(), $matches);
+if ($matches[0]) header(‘Location: ‘.$matches[0]);
+else echo ‘Enter a URL into your page body text.’;
+}
+?&gt;</code></pre></figure>
 
-        <h2>
-          <a class="post-link" href="/linux/2014/05/19/linux-commands.html">Linux常用命令</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>3.创建页面时，在“页面模板”选择“redirect”，页面内容填写需要跳转的链接</p>
 
-</div>
+  </div>
+
+</article>
 
       </div>
     </div>

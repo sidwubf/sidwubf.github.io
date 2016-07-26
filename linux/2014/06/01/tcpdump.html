@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Keep walking</title>
+  <title>tcpdump命令</title>
   <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://sidwubf.github.io/">
+  <link rel="canonical" href="http://sidwubf.github.io/linux/2014/06/01/tcpdump.html">
   <link rel="alternate" type="application/rss+xml" title="Keep walking" href="http://sidwubf.github.io/feed.xml">
 </head>
 
@@ -54,45 +54,47 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <ul class="post-list">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">tcpdump命令</h1>
+    <p class="post-meta"><time datetime="2014-06-01T10:21:00+08:00" itemprop="datePublished">Jun 1, 2014</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
     
-      <li>
-        <span class="post-meta">Jul 25, 2016</span>
+<figure class="highlight"><pre><code class="language-linenos" data-lang="linenos">tcpdump -nS
+tcpdump -nnvvS
+tcpdump -nnvvXS
+tcpdump -nnvvXSs 1514
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2016/07/25/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 17, 2014</span>
+tcpdump host 1.2.3.4
+tcpdump src 2.3.4.5
+tcpdump dst 3.4.5.6
+tcpdump net 1.2.3.0/24
+tcpdump icmp
 
-        <h2>
-          <a class="post-link" href="/wordpress/php/2014/06/17/wordpress-page-redirect.html">WordPress页面跳转</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 1, 2014</span>
+tcpdump port 3389
+tcpdump src port 1025
+tcpdump dst port 389
+tcpdump src port 1025 and tcp
+tcpdump udp and src port 53
+tcpdump portrange 21-23
 
-        <h2>
-          <a class="post-link" href="/linux/tcpdump/2014/06/01/tcpdump.html">tcpdump命令</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">May 19, 2014</span>
+tcpdump less 32
+tcpdump greater 128
+tcpdump &gt; 32
+tcpdump &lt;= 128
 
-        <h2>
-          <a class="post-link" href="/linux/2014/05/19/linux-commands.html">Linux常用命令</a>
-        </h2>
-      </li>
-    
-  </ul>
+tcpdump -nnvvS and src 10.5.2.3 and dst port 3389
+tcpdump -nvX src net 192.168.0.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16
+tcpdump -nvvXSs 1514 dst 192.168.0.2 and src net and not icmp
+tcpdump -vv src mars and not dst port 22</code></pre></figure>
 
-</div>
+
+  </div>
+
+</article>
 
       </div>
     </div>

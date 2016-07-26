@@ -5,8 +5,8 @@
     <description></description>
     <link>http://sidwubf.github.io/</link>
     <atom:link href="http://sidwubf.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Jul 2016 10:33:24 +0800</pubDate>
-    <lastBuildDate>Tue, 26 Jul 2016 10:33:24 +0800</lastBuildDate>
+    <pubDate>Tue, 26 Jul 2016 10:40:18 +0800</pubDate>
+    <lastBuildDate>Tue, 26 Jul 2016 10:40:18 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -34,6 +34,78 @@
         <category>jekyll</category>
         
         <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>WordPress页面跳转</title>
+        <description>&lt;p&gt;1.在/wp-content/themes/当前主题 下创建redirect.php&lt;/p&gt;
+
+&lt;p&gt;2.把下面代码拷贝进去&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-linenos&quot; data-lang=&quot;linenos&quot;&gt;&amp;lt;?php
+if (have_posts()) {
+the_post();
+$pattern = ‘@(https?://([-\w\.]+)+(:\d+)?(/([\w/_\.]*(\?\S+)?)?)?)@’;
+preg_match($pattern, get_the_excerpt(), $matches);
+if ($matches[0]) header(‘Location: ‘.$matches[0]);
+else echo ‘Enter a URL into your page body text.’;
+}
+?&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;3.创建页面时，在“页面模板”选择“redirect”，页面内容填写需要跳转的链接&lt;/p&gt;
+</description>
+        <pubDate>Tue, 17 Jun 2014 14:26:00 +0800</pubDate>
+        <link>http://sidwubf.github.io/wordpress/php/2014/06/17/wordpress-page-redirect.html</link>
+        <guid isPermaLink="true">http://sidwubf.github.io/wordpress/php/2014/06/17/wordpress-page-redirect.html</guid>
+        
+        
+        <category>wordpress</category>
+        
+        <category>php</category>
+        
+      </item>
+    
+      <item>
+        <title>tcpdump命令</title>
+        <description>
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-linenos&quot; data-lang=&quot;linenos&quot;&gt;tcpdump -nS
+tcpdump -nnvvS
+tcpdump -nnvvXS
+tcpdump -nnvvXSs 1514
+
+tcpdump host 1.2.3.4
+tcpdump src 2.3.4.5
+tcpdump dst 3.4.5.6
+tcpdump net 1.2.3.0/24
+tcpdump icmp
+
+tcpdump port 3389
+tcpdump src port 1025
+tcpdump dst port 389
+tcpdump src port 1025 and tcp
+tcpdump udp and src port 53
+tcpdump portrange 21-23
+
+tcpdump less 32
+tcpdump greater 128
+tcpdump &amp;gt; 32
+tcpdump &amp;lt;= 128
+
+tcpdump -nnvvS and src 10.5.2.3 and dst port 3389
+tcpdump -nvX src net 192.168.0.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16
+tcpdump -nvvXSs 1514 dst 192.168.0.2 and src net and not icmp
+tcpdump -vv src mars and not dst port 22&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Sun, 01 Jun 2014 10:21:00 +0800</pubDate>
+        <link>http://sidwubf.github.io/linux/tcpdump/2014/06/01/tcpdump.html</link>
+        <guid isPermaLink="true">http://sidwubf.github.io/linux/tcpdump/2014/06/01/tcpdump.html</guid>
+        
+        
+        <category>linux</category>
+        
+        <category>tcpdump</category>
         
       </item>
     
