@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Keep walking</title>
+  <title>WordPress页面跳转</title>
   <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://sidwubf.github.io/">
+  <link rel="canonical" href="http://sidwubf.github.io/nat/2014/08/02/NAT.html">
   <link rel="alternate" type="application/rss+xml" title="Keep walking" href="http://sidwubf.github.io/feed.xml">
 </head>
 
@@ -54,53 +54,37 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Sep 10, 2014</span>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">WordPress页面跳转</h1>
+    <p class="post-meta"><time datetime="2014-08-02T14:26:00+08:00" itemprop="datePublished">Aug 2, 2014</time></p>
+  </header>
 
-        <h2>
-          <a class="post-link" href="/java/servlet/2014/09/10/java-servlet.html">Servlet工作原理</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 2, 2014</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>NAT类型：</p>
 
-        <h2>
-          <a class="post-link" href="/nat/2014/08/02/NAT.html">WordPress页面跳转</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 17, 2014</span>
+<p>1.Full cone NAT</p>
 
-        <h2>
-          <a class="post-link" href="/wordpress/php/2014/06/17/wordpress-page-redirect.html">WordPress页面跳转</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 1, 2014</span>
+<p>一旦一个内部地址（iAddr:port1）映射到外部地址（eAddr:port2），所有发自iAddr:port1的包都经由eAddr:port2向外发送。任意外部主机都能通过给eAddr:port2发包到达iAddr:port1</p>
 
-        <h2>
-          <a class="post-link" href="/linux/tcpdump/2014/06/01/tcpdump.html">tcpdump命令</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">May 19, 2014</span>
+<p>2.Address-Restricted cone NAT</p>
 
-        <h2>
-          <a class="post-link" href="/linux/2014/05/19/linux-commands.html">Linux常用命令</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>一旦一个内部地址（iAddr:port1）映射到外部地址（eAddr:port2），所有发自iAddr:port1的包都经由eAddr:port2向外发送。任意外部主机（hostAddr:any）都能通过给eAddr:port2发包到达iAddr:port1的前提是：iAddr:port1之前发送过包到hostAddr:any. “any”也就是说端口不受限制</p>
 
-</div>
+<p>3.Port-Restricted cone NAT</p>
+
+<p>一旦一个内部地址（iAddr:port1）映射到外部地址（eAddr:port2），所有发自iAddr:port1的包都经由eAddr:port2向外发送。一个外部主机（hostAddr:port3）能够发包到达iAddr:port1的前提是：iAddr:port1之前发送过包到hostAddr:port3.</p>
+
+<p>4.Symmetric NAT</p>
+
+<p>每一个来自相同内部IP与端口，到一个特定目的地地址和端口的请求，都映射到一个独特的外部IP地址和端口。
+同一内部IP与端口发到不同的目的地和端口的信息包，都使用不同的映射
+只有曾经收到过内部主机封包的外部主机，才能够把封包发回</p>
+
+  </div>
+
+</article>
 
       </div>
     </div>
