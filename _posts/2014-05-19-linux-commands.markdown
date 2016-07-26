@@ -4,7 +4,6 @@ title:  "Linux常用命令"
 date:   2016-05-19 13:49:23 +0800
 categories: linux
 ---
-
 {% highlight linenos %}
 last reboot //查看重启纪录
 df -lh //查看硬盘信息
