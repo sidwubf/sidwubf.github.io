@@ -11,20 +11,21 @@ shutdown -h now //关机
 less /etc/passwd
 netstat -lnp //查看端口开通情况
 
-ls -l | grep “^-” | wc -l 查看当前目录下文件个数
-ls -lR | grep “^-” | wc -l 查看当前目录下文件个数(包括子目录)
-ls -lR | grep “^d” | wc -l 查看当前目录下目录个数(包括子目录)
+ls -l | grep "^-" | wc -l 查看当前目录下文件个数
+ls -lR | grep "^-" | wc -l 查看当前目录下文件个数(包括子目录)
+ls -lR | grep "^d" | wc -l 查看当前目录下目录个数(包括子目录)
+{% endhighlight %}
 
-find用法举例：
+{% highlight linenos %}
+find用法举例
 
-在某个路径下查找所有包含“hello”字符串的文件。
-find /etc -name “*” | xargs grep “hello”
-
-find ~ -name “.txt” -print #在$HOME中查.txt文件并显示
-find . -name “.txt” -print
-find . -name “[A-Z]” -print #查以大写字母开头的文件
-find /etc -name “host” -print #查以host开头的文件
-find . -name “[a-z][a-z][0--9][0--9].txt” -print #查以两个小写字母和两个数字开头的txt文件
+在某个路径下查找所有包含"hello"字符串的文件
+find /etc -name "*" | xargs grep "hello"
+find ~ -name ".txt" -print #在$HOME中查.txt文件并显示
+find . -name ".txt" -print
+find . -name "[A-Z]" -print #查以大写字母开头的文件
+find /etc -name "host" -print #查以host开头的文件
+find . -name "[a-z][a-z][0–9][0–9].txt" -print #查以两个小写字母和两个数字开头的txt文件
 find . -perm 755 -print
 find . -perm -007 -exec ls -l {} \; #查所有用户都可读写执行的文件同-perm 777
 find . -type d -print
@@ -34,10 +35,10 @@ find . -size +1000000c -print #查长度大于1Mb的文件
 find . -size 100c -print # 查长度为100c的文件
 find . -size +10 -print #查长度超过期作废10块的文件（1块=512字节）
 find etc home apps -depth -print | cpio -ivcdC65536 -o /dev/rmt0
-find /etc -name “passwd” -exec grep “cnscn” {} \; #看是否存在cnscn用户
-find . -name “yao” | xargs file
-find . -name “yao” | xargs echo “” > /tmp/core.log
-find . -name “yao” | xargs chmod o-w
+find /etc -name "passwd" -exec grep "cnscn" {} \; #看是否存在cnscn用户
+find . -name "yao" | xargs file
+find . -name "yao" | xargs echo "" > /tmp/core.log
+find . -name "yao" | xargs chmod o-w
 find -name april* 在当前目录下查找以april开始的文件
 find -name april* fprint file 在当前目录下查找以april开始的文件，并把结果输出到file中
 find -name ap* -o -name may* 查找以ap或may开头的文件

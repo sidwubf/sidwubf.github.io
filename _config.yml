@@ -11,5 +11,6 @@ email: wubofengwbf@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://sidwubf.github.io" # the base hostname & protocol for your site
 
+excerpt_separator: ""
 # Build settings
 markdown: kramdown
